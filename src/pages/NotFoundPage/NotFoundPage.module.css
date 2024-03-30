@@ -1,0 +1,16 @@
+.container {
+  max-width: 600px;
+}
+.title {
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.text {
+  font-family: Arial, Helvetica, sans-serif;
+  color: brown;
+}
+.btn {
+  margin-left: 30px;
+  width: 70px;
+  text-align: center;
+}

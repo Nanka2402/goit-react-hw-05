@@ -1,0 +1,31 @@
+.field {
+  max-width: 300px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+
+.button {
+  margin-left: 2px;
+  padding: 10px 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #fff;
+  color: black;
+  transition: all 0.2s ease;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+.button:hover,
+.button:focus {
+  background-color: #f69c1e;
+  color: rgb(255, 255, 255);
+}
+
+.form {
+  margin: 0 auto;
+  width: max-content;
+  margin-top: 30px;
+}

@@ -1,0 +1,25 @@
+.reviewDiv {
+  border: 3px solid white;
+  border-radius: 10px;
+  margin: 20px 0px;
+  padding: 0px 20px;
+}
+
+.reviewAuth {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 26px;
+  text-decoration: underline;
+}
+
+.reviewContent {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.reviewDate {
+  display: flex;
+  justify-content: space-between;
+}
