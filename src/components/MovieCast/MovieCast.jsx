@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { movieCastReq } from "../../Servises API/API";
+import { movieCastReq } from "../../API/API";
 import toast from "react-hot-toast";
 import noPhoto from "../../assest/noPhoto.png";
 import css from "./MovieCast.module.css";
