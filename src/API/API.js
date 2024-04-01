@@ -1,6 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL = "https://api.themoviedb.org/3/";
+axios.defaults.baseURL = "https://api.themoviedb.org/3";
 
 const options = {
   headers: {
@@ -11,14 +11,14 @@ const options = {
 };
 
 const trendReq = async () => {
-  const res = await axios.get("trending/movie/week", options);
+  const res = await axios.get("/trending/movie/week", options);
 
   return res.data.results;
 };
 
 const queryReq = async (query) => {
   const res = await axios.get(
-    `search/movie?include_adult=true&page=1&query=${query}`,
+    `/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
     options
   );
 
@@ -26,19 +26,19 @@ const queryReq = async (query) => {
 };
 
 const movieDetailsReq = async (movieId) => {
-  const res = await axios.get(`movie/${movieId}`, options);
+  const res = await axios.get(`/movie/${movieId}`, options);
 
   return res.data;
 };
 
 const movieCastReq = async (movieId) => {
-  const res = await axios.get(`movie/${movieId}/credits`, options);
+  const res = await axios.get(`/movie/${movieId}/credits`, options);
 
   return res.data;
 };
 
 const movieReviewsReq = async (movieId) => {
-  const res = await axios.get(`movie/${movieId}/reviews`, options);
+  const res = await axios.get(`/movie/${movieId}/reviews`, options);
 
   return res.data;
 };

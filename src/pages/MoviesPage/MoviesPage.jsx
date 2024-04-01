@@ -31,7 +31,7 @@ export default function MoviesPage() {
     };
 
     fetchQueryMovies();
-  }, [query, error, searchParams]);
+  }, [query, error]);
 
   const handleSearch = (query) => {
     const nextParams = query !== "" ? { query } : {};
