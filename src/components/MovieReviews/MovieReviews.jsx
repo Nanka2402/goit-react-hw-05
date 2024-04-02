@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import dateFormat from "dateformat";
 import css from "./MovieReviews.module.css";
 import Loader from "../Loader/Loader";
-import ErrorMessege from "../ErrorMessage/ErrorMessage";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 export default function MovieReviews() {
   const [reviews, setReviews] = useState(null);
@@ -33,7 +33,7 @@ export default function MovieReviews() {
   return (
     <>
       {loading && <Loader />}
-      {error && <ErrorMessege error={error} />}
+      {error && <ErrorMessage error={error} />}
       {Array.isArray(reviews) &&
         reviews &&
         reviews.map((review) => {

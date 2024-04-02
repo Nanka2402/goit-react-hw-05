@@ -32,7 +32,7 @@ export default function MovieDetailsPage() {
     if (!movieId) return;
     const getMovieData = async () => {
       setLoading(true);
-      setError(false);
+      setError(null);
       try {
         const res = await movieDetailsReq(movieId);
         setMovie(res);
@@ -110,8 +110,8 @@ export default function MovieDetailsPage() {
       </div>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<MovieReviews />} />
+          <Route path="/movies/:movieId/cast" element={<MovieCast />} />
+          <Route path="/movies/:movieId/reviews" element={<MovieReviews />} />
         </Routes>
       </Suspense>
     </div>

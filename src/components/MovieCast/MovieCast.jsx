@@ -18,7 +18,7 @@ export default function MovieCast() {
     if (!movieId) return;
     const getCastData = async () => {
       setLoading(true);
-      setError(false);
+      setError(null);
       try {
         const res = await movieCastReq(movieId);
         setCast(res);
@@ -32,10 +32,17 @@ export default function MovieCast() {
 
     getCastData();
   }, [movieId]);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <ErrorMessage error={error} />;
+  }
+
   return (
     <>
-      {loading && <Loader />}
-      {error && <ErrorMessage error={error} />}
       {Array.isArray(cast) &&
         cast &&
         cast.map((actor) => {
