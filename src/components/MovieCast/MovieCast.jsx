@@ -1,12 +1,13 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { movieCastReq } from "../../API/API";
 import toast from "react-hot-toast";
 import noPhoto from "../../assest/noPhoto.png";
 import css from "./MovieCast.module.css";
-import Loader from "../Loader/Loader";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
+
+const Loader = lazy(() => import("../Loader/Loader"));
+const ErrorMessage = lazy(() => import("../ErrorMessage/ErrorMessage"));
 
 export default function MovieCast() {
   const [cast, setCast] = useState(null);

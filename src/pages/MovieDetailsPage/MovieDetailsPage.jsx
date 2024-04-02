@@ -27,7 +27,7 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkRef = useRef(location.state?.from ?? "/");
+  const backLinkRef = useRef(location.state?.from ?? "/movies");
   useEffect(() => {
     if (!movieId) return;
     const getMovieData = async () => {
@@ -110,8 +110,8 @@ export default function MovieDetailsPage() {
       </div>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/movies/:movieId/cast" element={<MovieCast />} />
-          <Route path="/movies/:movieId/reviews" element={<MovieReviews />} />
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
         </Routes>
       </Suspense>
     </div>

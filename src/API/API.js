@@ -18,7 +18,7 @@ const trendReq = async () => {
 
 const queryReq = async (query) => {
   const res = await axios.get(
-    `/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+    `/search/movie?include_adult=true&page=1&query=${query}`,
     options
   );
 

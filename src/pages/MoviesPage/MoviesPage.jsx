@@ -3,7 +3,6 @@ import SeachForm from "../../components/SearchForm/SearchForm";
 import { queryReq } from "../../API/API";
 import toast from "react-hot-toast";
 import { useSearchParams } from "react-router-dom";
-
 import Loader from "../../components/Loader/Loader";
 import ErrorMessege from "../../components/ErrorMessage/ErrorMessage";
 import MovieList from "../../components/MovieList/MovieList";
@@ -31,7 +30,7 @@ export default function MoviesPage() {
     };
 
     fetchQueryMovies();
-  }, [query, error]);
+  }, [query]);
 
   const handleSearch = (query) => {
     const nextParams = query !== "" ? { query } : {};
