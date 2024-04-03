@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { movieCastReq } from "../../API/API";
 import toast from "react-hot-toast";
-import noPhoto from "../../assest/noPhoto.png";
+import nophoto from "../../assest/noPhoto.png";
 import css from "./MovieCast.module.css";
 
 const Loader = lazy(() => import("../Loader/Loader"));
@@ -19,7 +19,7 @@ export default function MovieCast() {
     if (!movieId) return;
     const getCastData = async () => {
       setLoading(true);
-      setError(null);
+      setError(false);
       try {
         const res = await movieCastReq(movieId);
         setCast(res);
@@ -33,17 +33,10 @@ export default function MovieCast() {
 
     getCastData();
   }, [movieId]);
-
-  if (loading) {
-    return <Loader />;
-  }
-
-  if (error) {
-    return <ErrorMessage error={error} />;
-  }
-
   return (
     <>
+      {loading && <Loader />}
+      {error && <ErrorMessage error={error} />}
       {Array.isArray(cast) &&
         cast &&
         cast.map((actor) => {
@@ -54,7 +47,7 @@ export default function MovieCast() {
                 src={
                   actor.profile_path
                     ? `https://image.tmdb.org/t/p/w200/${actor.profile_path}`
-                    : noPhoto
+                    : nophoto
                 }
               />
               <p>{actor.name}</p>

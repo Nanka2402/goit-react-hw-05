@@ -32,7 +32,7 @@ export default function MovieDetailsPage() {
     if (!movieId) return;
     const getMovieData = async () => {
       setLoading(true);
-      setError(null);
+      setError(false);
       try {
         const res = await movieDetailsReq(movieId);
         setMovie(res);
@@ -53,9 +53,10 @@ export default function MovieDetailsPage() {
       {loading && <Loader />}
       {error && <ErrorMessage error={error} />}
       {movie && (
-        <div className={css.content}>
+        <div className={css.container}>
           <img
-            width={400}
+            className={css.image}
+            width={350}
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt="movie poster"
           />
@@ -89,7 +90,7 @@ export default function MovieDetailsPage() {
           </div>
         </div>
       )}
-      <div>
+      <div className={css.contentLink}>
         <NavLink
           to="cast"
           state={{ from: backLinkRef.current }}
