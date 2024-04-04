@@ -11,7 +11,7 @@ export default function MovieList({ movies }) {
           {movies.map((movie) => {
             return (
               <li key={movie.id} className={css.item}>
-                <Link to={`/movies/${movie.id}`} state={{ form: location }}>
+                <Link to={`/movies/${movie.id}`} state={{ from: location }}>
                   <MovieItem movie={movie} />
                 </Link>
               </li>
