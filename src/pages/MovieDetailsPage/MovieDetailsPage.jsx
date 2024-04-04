@@ -27,12 +27,15 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkRef = useRef(location.state?.from ?? "/movies");
+  const backLinkRef = useRef(
+    location.state?.from === "/search" ? "/search" : "/"
+  );
+
   useEffect(() => {
     if (!movieId) return;
     const getMovieData = async () => {
       setLoading(true);
-      setError(false);
+      setError(null);
       try {
         const res = await movieDetailsReq(movieId);
         setMovie(res);
@@ -45,9 +48,11 @@ export default function MovieDetailsPage() {
     };
     getMovieData();
   }, [movieId]);
+
   const buildLinkClass = ({ isActive }) => {
     return clsx(css.link, isActive && css.active);
   };
+
   return (
     <div>
       {loading && <Loader />}
