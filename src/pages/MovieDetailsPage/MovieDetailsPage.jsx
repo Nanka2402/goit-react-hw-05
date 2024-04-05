@@ -27,9 +27,7 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
-  const backLinkRef = useRef(
-    location.state?.from === "/search" ? "/search" : "/"
-  );
+  const backLinkRef = useRef(location.state?.from || "/");
 
   useEffect(() => {
     if (!movieId) return;
@@ -96,18 +94,10 @@ export default function MovieDetailsPage() {
         </div>
       )}
       <div className={css.contentLink}>
-        <NavLink
-          to="cast"
-          state={{ from: backLinkRef.current }}
-          className={buildLinkClass}
-        >
+        <NavLink to="cast" className={buildLinkClass}>
           Cast
         </NavLink>
-        <NavLink
-          to="reviews"
-          state={{ from: backLinkRef.current }}
-          className={buildLinkClass}
-        >
+        <NavLink to="reviews" className={buildLinkClass}>
           Movie Reviews
         </NavLink>
         <Link className={css.link} to={backLinkRef.current}>
